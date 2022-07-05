@@ -1,0 +1,64 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+
+  id           String     @id @unique
+  orgId           String   @unique
+  username     String
+  email        String     @unique
+  phonenumber        String     @unique
+  hash         String
+  refreshToken String?
+  products     Products[]
+
+  @@map(name: "user")
+}
+
+model Transactions {
+  id  String  @id @unique
+  orgId String
+  transactionId String  @unique
+  totalAmount Int
+  username  String
+  email String
+  phonenumber String
+  paid  Boolean @default(false)
+  status String @default("pending")
+  createdAt String
+
+  items Items[]
+
+  @@map(name: "transactions")
+}
+
+model Items {
+  id  String  @id  @unique
+  tranId  String
+  prodId  String
+  quantity  Int @default(1)
+  transactions Transactions  @relation(fields: [tranId], references: [transactionId])
+
+  @@map(name: "items")
+}
+
+model Products {
+  id          String  @id
+  authorId    String
+  orgId    String
+  title       String
+  description String
+  price       String
+  image       String
+  currency    String
+  categories  String?
+  author      User    @relation(fields: [authorId], references: [id])
+
+  @@map(name: "products")
+}
