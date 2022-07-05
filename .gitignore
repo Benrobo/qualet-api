@@ -11,6 +11,9 @@
 
 test.js
 
+# build
+/build
+
 # prisma schema/migration
 
 /prisma/migrations

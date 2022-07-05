@@ -4,9 +4,9 @@
   "description": "",
   "main": "./src/app.js",
   "scripts": {
-    "clean": "rmdir /s /q build",
+    "clean": "rimraf build/*",
     "build": "npm run clean && babel src/app.js --out-dir build",
-    "start": "node build/index.js",
+    "start": "node build/app.js",
     "dev": "nodemon --exec babel-node src/app.js",
     "prod": "npm run build && npm start",
     "prisma-migrate": "npx prisma migrate dev --name init"
@@ -20,7 +20,8 @@
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
     "nodemon": "^2.0.16",
-    "prisma": "^3.13.0"
+    "prisma": "^3.13.0",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "@prisma/client": "^3.13.0",
