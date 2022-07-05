@@ -31,7 +31,7 @@ app.use("/api/product", productRouter);
 // transactions
 app.use("/api/transaction", transactionRouter)
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server listening @ http://localhost:${PORT}`);
