@@ -9,8 +9,13 @@ import transactionRouter from "./routes/transactions.router";
 
 const app = express();
 
+const corsOptions ={
+  origin:'*', 
+  credentials:true,            //access-control-allow-credentials:true
+  optionSuccessStatus:200,
+}
 // Middlewares
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(bodyParser.json({ limit: "50mb", extended: true }));
 app.use(bodyParser.urlencoded({lmit:"50mb", extended: true }));
 
