@@ -1,4 +1,4 @@
-# Raypyd Hack - API
+# Qualet - API
 
 > There are some changes I'll be making to this repo, make sure you pull updated changes using `git pull`. then add your changes before pushing.
 
@@ -7,7 +7,7 @@
 - ## Clone the repo
 
 ```js
-    git clone https://github.com/Benrobo/Rapyd-Payment-api.git
+    git clone https://github.com/Benrobo/qualet-api.git
 ```
 
 - ## Install all dependencies
@@ -24,20 +24,19 @@
 
 ```js
 
-    DATABASE_URL="postgresql://postgres:1234@localhost:5432/mydb?schema=public"
+    DATABASE_URL="postgresql://postgres:1234@localhost:5432/qualet?schema=public&connect_timeout=1000"
 
-    ACCESS_TOKEN_SECRET=""
+    JWT_SECRET="some-secret"
 
-    REFRESH_TOKEN_SECRET=""
+    MAX_API_REQUEST_COUNT = 500
 
-    MAX_API_REQUEST_COUNT = 100
 ```
 
 ## This starter kit uses `Prisma ORM` for managing `Postgresql Database`. So it compulsory you have postgresql installed, if not follow the link below on setting up postgresql and prisma orm on your pc
 
-- ## [Postgresql Setup](https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/)
+- [Postgresql Setup](https://www.postgresqltutorial.com/postgresql-getting-started/install-postgresql/)
 
-- ## [Prisma Setup](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgres)
+-  [Prisma Setup](https://www.prisma.io/docs/getting-started/setup-prisma/start-from-scratch/relational-databases-typescript-postgres)
 
 
 - ## Update the `schema.prisma` file with your own custom models and run the npm script commands
