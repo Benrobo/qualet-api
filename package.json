@@ -5,7 +5,7 @@
   "main": "./src/app.js",
   "scripts": {
     "clean": "rimraf build/*",
-    "build": "npm run clean && babel src/app.js --out-dir build",
+    "build": "npm run clean && babel src/app.js --out-dir build && prisma generate",
     "start": "node build/app.js",
     "dev": "nodemon --exec babel-node src/app.js",
     "prod": "npm run build && npm start",
